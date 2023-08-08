@@ -30,16 +30,8 @@ export default function TextForm({ heading, mode, showalert }) {
     }
 
     const trimText = () => {
-        setText(text.trim());
+        setText(text.replace(/\s+/g, ' '));
         showalert("success", "successful remove space...");
-    }
-
-    let wordLength = 0;
-    if (text === "")
-        wordLength = 0;
-    else {
-        const t = text.trim();
-        wordLength = t.split(' ').length;
     }
 
     return (
@@ -51,16 +43,16 @@ export default function TextForm({ heading, mode, showalert }) {
                         <textarea className="form-control" onChange={hendleOnChange} value={text} id="exampleFormControlTextarea1" rows="8"></textarea>
                     </div>
                 </form>
-                <button className="btn btn-primary" onClick={hendleUpClickU} >Convert to Uppercase</button>
-                <button className="btn btn-primary mx-1" onClick={hendleUpClickL} >Convert to Lowercase</button>
-                <button className="btn btn-primary mx-1" onClick={clearText} >Clear text</button>
-                <button className="btn btn-primary mx-1" onClick={copyToClipBoard} >Copy to clipboard</button>
-                <button className="btn btn-primary mx-1" onClick={trimText} >Remove Extra space</button>
+                <button className="btn btn-primary my-1 mr-1" onClick={hendleUpClickU} >Convert to Uppercase</button>
+                <button className="btn btn-primary my-1 mx-1" onClick={hendleUpClickL} >Convert to Lowercase</button>
+                <button className="btn btn-primary my-1 mx-1" onClick={clearText} >Clear text</button>
+                <button className="btn btn-primary my-1 mx-1" onClick={copyToClipBoard} >Copy to clipboard</button>
+                <button className="btn btn-primary my-1 mx-1" onClick={trimText} >Remove Extra space</button>
             </div>
             <div className={`container my-3 ${mode === 'light' ? 'text-dark' : 'text-light'}`}>
                 <h3>Your Text summary</h3>
-                <p>{wordLength} words and {text.length} characters</p>
-                <p>{wordLength * 0.008} Minutes required for read words.</p>
+                <p>{text.split(/\s+/).filter((Element) => { return Element.length !== 0 }).length} words and {text.split('').filter((Element) => Element !== " ").length} characters</p>
+                <p>{text.split(/\s+/).filter((Element) => { return Element.length !== 0 }).length * 0.008} Minutes required for read words.</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : 'Enter something to preview Here!'}</p>
             </div>
