@@ -43,11 +43,11 @@ export default function TextForm({ heading, mode, showalert }) {
                         <textarea className="form-control" onChange={hendleOnChange} value={text} id="exampleFormControlTextarea1" rows="8"></textarea>
                     </div>
                 </form>
-                <button className="btn btn-primary my-1 mr-1" onClick={hendleUpClickU} >Convert to Uppercase</button>
-                <button className="btn btn-primary my-1 mx-1" onClick={hendleUpClickL} >Convert to Lowercase</button>
-                <button className="btn btn-primary my-1 mx-1" onClick={clearText} >Clear text</button>
-                <button className="btn btn-primary my-1 mx-1" onClick={copyToClipBoard} >Copy to clipboard</button>
-                <button className="btn btn-primary my-1 mx-1" onClick={trimText} >Remove Extra space</button>
+                <button className="btn btn-primary my-1 mr-1 my-.5" onClick={hendleUpClickU} >Convert to Uppercase</button>
+                <button className="btn btn-primary my-1 mx-1 my-.5" onClick={hendleUpClickL} >Convert to Lowercase</button>
+                <button className="btn btn-primary my-1 mx-1 my-.5" onClick={clearText} >Clear text</button>
+                <button className="btn btn-primary my-1 mx-1 my-.5" onClick={copyToClipBoard} >Copy to clipboard</button>
+                <button className="btn btn-primary my-1 mx-1 my-.5" onClick={trimText} >Remove Extra space</button>
             </div>
             <div className={`container my-3 ${mode === 'light' ? 'text-dark' : 'text-light'}`}>
                 <h3>Your Text summary</h3>
